@@ -248,7 +248,7 @@ namespace SteamStreamingLibrary
                     CMsgRemoteClientStartStreamResponse = Serializer.Deserialize<CMsgRemoteClientStartStreamResponse>(stream);
 #if DEBUG
                     Console.Write("Launch Result: " + CMsgRemoteClientStartStreamResponse.e_launch_result.ToString() + Environment.NewLine +
-                                  "Auth Token: " + Utils.ByteArrayToString(CMsgRemoteClientStartStreamResponse.auth_token) + Environment.NewLine +
+                                  "Auth Token: " + CMsgRemoteClientStartStreamResponse.auth_token == null ? "(null)" : Utils.ByteArrayToString(CMsgRemoteClientStartStreamResponse.auth_token) + Environment.NewLine +
                                   "Stream Port: " + CMsgRemoteClientStartStreamResponse.stream_port + Environment.NewLine);
 #endif
                     if (CMsgRemoteClientStartStreamResponse.e_launch_result == 1) //Success, hand off stream control information
